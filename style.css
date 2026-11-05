@@ -1,0 +1,279 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 70px 20px;
+    background-image: url("./images/todo-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #60442f;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* NOTEBOOK */
+
+.notebook {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    margin-top: 35px;
+    filter: drop-shadow(0 18px 25px rgba(65, 43, 25, 0.25));
+}
+
+/* SPIRAL BINDING */
+
+.spiral {
+    position: absolute;
+    z-index: 3;
+    top: -23px;
+    left: 7%;
+    width: 86%;
+    height: 34px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 16px,
+            #8a6b4c 17px,
+            #d1b99a 20px,
+            #76583d 23px,
+            transparent 25px,
+            transparent 38px
+        );
+}
+
+/* NOTEBOOK PAPER */
+
+.paper {
+    position: relative;
+    background: #f6eddf;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(133, 101, 68, 0.025) 0px,
+            rgba(133, 101, 68, 0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    padding: 65px 55px 35px;
+    border: 1px solid #d8c5aa;
+    border-radius: 5px 5px 12px 12px;
+
+    box-shadow:
+        inset 0 0 25px rgba(128, 93, 58, 0.08),
+        0 8px 15px rgba(70, 48, 29, 0.12);
+}
+
+/* HEADING */
+
+h1 {
+    text-align: center;
+    font-size: clamp(30px, 5vw, 43px);
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #69472f;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #ad8b68;
+}
+
+.subtitle {
+    text-align: center;
+    color: #987b60;
+    font-size: 13px;
+    font-style: italic;
+    margin: 12px 0 28px;
+    letter-spacing: 1px;
+}
+
+/* INPUT AREA */
+
+.input-box {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    padding: 16px 18px;
+
+    background: rgba(255, 250, 241, 0.55);
+    border: 1px solid #a98a6b;
+    border-radius: 13px;
+
+    font-family: Georgia, serif;
+    font-size: 17px;
+    color: #60442f;
+    outline: none;
+}
+
+input::placeholder {
+    color: #a58a70;
+}
+
+input:focus {
+    border-color: #79583c;
+    box-shadow: 0 0 0 3px rgba(121, 88, 60, 0.10);
+}
+
+button {
+    font-family: Georgia, serif;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#addBtn {
+    padding: 15px 23px;
+    background: #795638;
+    color: #fff8ee;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(75, 48, 26, 0.18);
+}
+
+#addBtn:hover {
+    background: #5f402a;
+    transform: translateY(-2px);
+}
+
+/* TASK TABLE */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    font-size: 15px;
+}
+
+thead {
+    background: #e5d1b7;
+}
+
+th {
+    padding: 15px 8px;
+    color: #65482f;
+    font-weight: 600;
+    border: 1px solid #c9ad8c;
+}
+
+td {
+    padding: 13px 8px;
+    text-align: center;
+    border: 1px solid #d6c1a5;
+    color: #654a34;
+    overflow-wrap: anywhere;
+}
+
+td:nth-child(2) {
+    text-align: left;
+}
+
+/* DONE BUTTON */
+
+td:nth-child(3) button {
+    padding: 9px 15px;
+    background: #795638;
+    color: #fff8ee;
+    border: none;
+    border-radius: 20px;
+}
+
+/* DELETE BUTTON */
+
+td:nth-child(4) button {
+    padding: 9px 15px;
+    background: transparent;
+    color: #795638;
+    border: 1px solid #987553;
+    border-radius: 20px;
+}
+
+td button:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+/* COMPLETED TASK */
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+/* FOOTER */
+
+.footer-note {
+    text-align: center;
+    margin-top: 35px;
+    color: #9b7d60;
+    font-size: 14px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+    body {
+        padding: 45px 12px;
+        background-attachment: scroll;
+    }
+    .paper {
+        padding: 55px 16px 25px;
+    }
+    .input-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #addBtn {
+        width: 100%;
+    }
+    table {
+        font-size: 12px;
+    }
+    th, td {
+        padding: 10px 4px;
+    }
+    td:nth-child(3) button,
+    td:nth-child(4) button {
+        padding: 7px 8px;
+        font-size: 11px;
+    }
+}
